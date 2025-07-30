@@ -29,15 +29,7 @@ git clone https://github.com/acostamatt/odoo-docker.git
 cd odoo-docker
 ```
 
-### 2. Clona el Repositorio odoo de la versión 18
-Clona en tu máquina local el repositorio oficial de Odoo para poder tener ecceso a su código fuente.
-En éste momento la que está por defecto la versión 18.
-
-```bash
-git clone https://github.com/odoo/odoo.git
-```
-
-### 3. Levanta los Contenedores
+### 2. Levanta los Contenedores
 
 Para iniciar los contenedores de Odoo y PostgreSQL, ejecuta:
 
