@@ -1,10 +1,8 @@
 services:
   odoo:
-    build:
-      context: .
+    image: odoo:18.0
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     ports:
       - "8069:8069"
     volumes:
@@ -12,16 +10,15 @@ services:
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
       - ./logs:/var/log/odoo
-      - ./odoo:/odoo
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: python3 odoo-bin -d odoo --db_user=odoo --db_password=odoo --config=/etc/odoo/odoo.conf --init base
+    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base
     restart: always
 
   db:
-    image: postgres:15
+    image: postgres:17
     environment:
       - POSTGRES_DB=odoo
       - POSTGRES_USER=odoo
@@ -31,12 +28,9 @@ services:
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
     restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
 
 volumes:
   odoo-web-data:
+    name: odoo-docker_odoo-web-data
   odoo-db-data:
+    name: odoo-docker_odoo-db-data
