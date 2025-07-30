@@ -16,36 +16,28 @@ Para ejecutar los contenedores, asegúrate de tener instalados los siguientes pr
 1. Descarga **Docker Desktop** desde la página oficial de Docker: [Docker Desktop](https://www.docker.com/products/docker-desktop).
 2. Sigue las instrucciones de instalación en la página de Docker. Asegúrate de habilitar **Docker Compose** durante la instalación.
 
-#### En Linux
-1. Ejecuta los siguientes comandos en la terminal para instalar Docker:
-   ```bash
-   sudo apt update
-   sudo apt install docker.io -y
-   docker --version
-   ```
-2. Instala Docker Compose:
-   ```bash
-   sudo apt install docker-compose -y
-   docker-compose --version
-   ```
-3. Asegúrate de que el servicio Docker esté activo:
-   ```bash
-   sudo systemctl start docker
-   sudo systemctl enable docker
-   sudo systemctl status docker
-   ```
+#### En distribuciones Linux
+1. Sigue las instrucciones de instalación en la página de Docker. Acuerdate de elegir primero el repositorio en base a tu distribución: [Docker Compose](https://docs.docker.com/compose/install/linux/)
 
 ## Uso
 
-### 1. Clona el Repositorio
+### 1. Clona el Repositorio actual
 Clona este repositorio en tu máquina local e ingresa a la carpeta del proyecto:
 
 ```bash
-git clone https://github.com/vjmoreno/odoo-18-docker
-cd odoo-18-docker
+git clone https://github.com/acostamatt/odoo-docker.git
+cd odoo-docker
 ```
 
-### 2. Levanta los Contenedores
+### 2. Clona el Repositorio odoo de la versión 18
+Clona en tu máquina local el repositorio oficial de Odoo para poder tener ecceso a su código fuente.
+En éste momento la que está por defecto la versión 18.
+
+```bash
+git clone https://github.com/odoo/odoo.git
+```
+
+### 3. Levanta los Contenedores
 
 Para iniciar los contenedores de Odoo y PostgreSQL, ejecuta:
 
@@ -65,7 +57,7 @@ http://localhost:8069
 ### 4. Dar de baja los contenedores
 
 ```bash
-docker-compose down
+docker compose down -v
 ```
 Esto eliminará los contenedores de Odoo y PostgreSQL, pero conservará la base de datos, configuraciones de Odoo, módulos y logs.
 
