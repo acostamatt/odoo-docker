@@ -10,8 +10,8 @@ services:
       - "8072:8072"
     volumes:
       - odoo-web-data:/var/lib/odoo
-      - ./certs:/etc/odoo/certs
       - ./config:/etc/odoo
+      - ./config/certs:/etc/odoo/certs
       - ./addons:/mnt/extra-addons
       - ./addons/oca_calendar:/mnt/oca-calendar
       - ./addons/oca_web:/mnt/oca-web
