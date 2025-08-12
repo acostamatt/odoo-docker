@@ -15,9 +15,11 @@ services:
       - ./addons:/mnt/extra-addons
       - ./addons/oca_calendar:/mnt/oca-calendar
       - ./addons/oca_web:/mnt/oca-web
+      - ./addons/odoo-argentina:/mnt/odoo-argentina
+      - ./addons/account_budgeting:/mnt/account-budgeting
       - ./addons/account_financial_reporting:/mnt/account-financial-reporting
       - ./addons/account_financial_tools:/mnt/account-financial-tools
-      - ./addons/currency/currency_rate_update:/mnt/currency/currency-rate-update
+      - ./addons/currency:/mnt/currency
       - ./logs:/var/log/odoo
       - ./entrypoint.sh:/entrypoint.sh
     environment:
