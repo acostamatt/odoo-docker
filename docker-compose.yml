@@ -1,6 +1,8 @@
 services:
   odoo:
-    image: odoo:18.0
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - db
     ports:
@@ -8,16 +10,22 @@ services:
       - "8072:8072"
     volumes:
       - odoo-web-data:/var/lib/odoo
+      - ./certs:/etc/odoo/certs
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+      - ./addons/oca_calendar:/mnt/oca-calendar
+      - ./addons/oca_web:/mnt/oca-web
+      - ./addons/account_financial_reporting:/mnt/account-financial-reporting
+      - ./addons/account_financial_tools:/mnt/account-financial-tools
+      - ./addons/currency/currency_rate_update:/mnt/currency/currency-rate-update
       - ./logs:/var/log/odoo
       - ./entrypoint.sh:/entrypoint.sh
-    entrypoint: ["/entrypoint.sh"]
-    
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
+      - PYTHONIOENCODING=utf-8
+      - INIT_MODULES=base,l10n_ar_afipws,l10n_ar_afipws_fe
     restart: always
 
   db:

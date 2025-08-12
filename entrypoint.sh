@@ -1,16 +1,21 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-set -e
-
-# Wait for Postgresql to be ready
-until pg_isready -h "$HOST" -U "$USER" > /dev/null 2>&1; do
-    sleep 2
+# Default variables
+: "${DB:=odoo}"
+: "${HOST:=db}"
+: "${USER:=odoo}"
+: "${PASSWORD:=odoo}"
+: OD_CONF="${OD_CONF:-/etc/odoo/odoo.conf}"
+: INIT_MODULES="${INIT_MODULES:-base,l10n_ar_afipws,l10n_ar_afipws_fe}"
+# Wait for PostgreSQL to be ready
+until pg_isready -h "$HOST" -U "$USER" -d "$DB" > /dev/null 2>&1; do
+  sleep 2
 done
 
-# Check if the “res_users” table already exists (base module installed)
-if ! PGPASSWORD="$PASSWORD" psql -h "$HOST" -U "$USER" -d "$DB" -c "\dt" | grep -q "res_users"; then
-    odoo -c /etc/odoo/odoo.conf -d "$DB" -i base --without-demo=all
+# Check if tables already exist (res_users indicates base installation)
+if ! PGPASSWORD="$PASSWORD" psql -h "$HOST" -U "$USER" -d "$DB" -tAc "SELECT 1 FROM pg_tables WHERE tablename = 'res_users';" | grep -q 1; then
+  exec odoo -c /etc/odoo/odoo.conf -d "$DB" -i "$INIT_MODULES" --without-demo=all
+else
+  exec odoo -c /etc/odoo/odoo.conf
 fi
-
-# Start Odoo
-exec odoo -c /etc/odoo/odoo.conf
