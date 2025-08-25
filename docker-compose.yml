@@ -16,6 +16,7 @@ services:
       - ./addons/oca_calendar:/mnt/oca-calendar
       - ./addons/oca_web:/mnt/oca-web
       - ./addons/odoo-argentina:/mnt/odoo-argentina
+      - ./addons/odoo-argentina-ee:/mnt/odoo-argentina-ee
       - ./addons/account_budgeting:/mnt/account-budgeting
       - ./addons/account_financial_reporting:/mnt/account-financial-reporting
       - ./addons/account_financial_tools:/mnt/account-financial-tools
@@ -51,7 +52,7 @@ services:
     ports:
       - "5050:80"
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@tera.com
+      - PGADMIN_DEFAULT_EMAIL=admin@odoo.com
       - PGADMIN_DEFAULT_PASSWORD=admin
     volumes:
       - pgadmin-data:/var/lib/pgadmin
