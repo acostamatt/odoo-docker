@@ -10,6 +10,7 @@ services:
       - "8072:8072"
     volumes:
       - ./app:/odoo
+      - ./enterprise:/opt/odoo/enterprise
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./config/certs:/etc/odoo/certs
@@ -65,5 +66,5 @@ volumes:
     name: odoo-docker_odoo-web-data
   odoo-db-data:
     name: odoo-docker_odoo-db-data
-  # pgadmin-data:
-  #   name: odoo-docker_pgadmin-data
+  pgadmin-data:
+    name: odoo-docker_pgadmin-data
