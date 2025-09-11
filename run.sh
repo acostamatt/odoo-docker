@@ -5,7 +5,7 @@ docker compose up -d --build
 # Create logs folder if it does not exist
 mkdir -p logs
 
-sudo chmod -R 777 logs
+sudo chmod -R 777 ./config ./addons ./logs
 
 # Max size in bytes
 MAX_SIZE=$((10 * 1024 * 1024)) 

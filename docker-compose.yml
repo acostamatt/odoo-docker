@@ -9,6 +9,7 @@ services:
       - "8069:8069"
       - "8072:8072"
     volumes:
+      - ./app:/odoo
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./config/certs:/etc/odoo/certs
@@ -28,7 +29,8 @@ services:
       - USER=odoo
       - PASSWORD=odoo
       - PYTHONIOENCODING=utf-8
-      - INIT_MODULES=base,l10n_ar_afipws,l10n_ar_afipws_fe
+      - INIT_MODULES=base,web
+    entrypoint: ["/entrypoint.sh"]
     restart: always
 
   db:
@@ -63,5 +65,5 @@ volumes:
     name: odoo-docker_odoo-web-data
   odoo-db-data:
     name: odoo-docker_odoo-db-data
-  pgadmin-data:
-    name: odoo-docker_pgadmin-data
+  # pgadmin-data:
+  #   name: odoo-docker_pgadmin-data
