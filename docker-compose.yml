@@ -23,6 +23,7 @@ services:
       - ./addons/currency:/mnt/currency
       - ./addons/adhoc_account_financial_tools:/mnt/adhoc-account-financial-tools
       - ./addons/adhoc_odoo_argentina:/mnt/adhoc-odoo-argentina
+      - ./addons/adhoc_account_payment:/mnt/adhoc-account-payment
       - ./logs:/var/log/odoo
       - ./entrypoint.sh:/entrypoint.sh
     environment:
