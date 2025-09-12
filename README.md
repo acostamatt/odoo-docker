@@ -38,7 +38,7 @@ git clone --branch 18.0 --single-branch --depth 1 https://github.com/odoo/enterp
 ```
 
 ### 3. Módulos adicionales Localización Argentina
-También es necesario clonar algunos módulos necesarios para la correcta configuración de la localización Argentina.
+También es necesario clonar algunos módulos para la correcta configuración de la localización Argentina.
 
 ```bash
 mkdir addons && cd addons
