@@ -15,8 +15,6 @@ services:
       - ./config:/etc/odoo
       - ./config/certs:/etc/odoo/certs
       - ./addons:/mnt/extra-addons
-      - ./addons/oca_calendar:/mnt/oca-calendar
-      - ./addons/oca_web:/mnt/oca-web
       - ./addons/odoo-argentina:/mnt/odoo-argentina
       - ./addons/odoo-argentina-ee:/mnt/odoo-argentina-ee
       - ./addons/account_budgeting:/mnt/account-budgeting
