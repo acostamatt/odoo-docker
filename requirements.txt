@@ -16,5 +16,5 @@ mpld3==0.5.10
 # odoo_argentina
 pysimplesoap==1.8.22
 httplib2>=0.7
-git+https://github.com/reingart/pyafipws
+git+https://github.com/ingadhoc/pyafipws.git@odoo18
 M2Crypto
