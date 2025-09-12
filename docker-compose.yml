@@ -9,14 +9,14 @@ services:
       - "8069:8069"
       - "8072:8072"
     volumes:
-      - ./app:/odoo
+      - ./community:/odoo
       - ./enterprise:/opt/odoo/enterprise
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./config/certs:/etc/odoo/certs
       - ./addons:/mnt/extra-addons
-      - ./addons/odoo-argentina:/mnt/odoo-argentina
-      - ./addons/odoo-argentina-ee:/mnt/odoo-argentina-ee
+      - ./addons/odoo_argentina:/mnt/odoo-argentina
+      - ./addons/odoo_argentina_ee:/mnt/odoo-argentina-ee
       - ./addons/account_budgeting:/mnt/account-budgeting
       - ./addons/account_financial_reporting:/mnt/account-financial-reporting
       - ./addons/account_financial_tools:/mnt/account-financial-tools

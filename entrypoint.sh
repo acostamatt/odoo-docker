@@ -15,7 +15,6 @@ done
 
 # Check if tables already exist (res_users indicates base installation)
 if ! PGPASSWORD="$PASSWORD" psql -h "$HOST" -U "$USER" -d "$DB" -tAc "SELECT 1 FROM pg_tables WHERE tablename = 'res_users';" | grep -q 1; then
-  # exec odoo -c /etc/odoo/odoo.conf -d "$DB" -i "$INIT_MODULES" -u "estate" --without-demo=all
   exec python3 /odoo/odoo-bin -c /etc/odoo/odoo.conf -d "$DB" -i "$INIT_MODULES" --without-demo=all
 else
   exec python3 /odoo/odoo-bin -c /etc/odoo/odoo.conf --without-demo=all
