@@ -15,15 +15,6 @@ services:
       - ./config:/etc/odoo
       - ./config/certs:/etc/odoo/certs
       - ./addons:/mnt/extra-addons
-      - ./addons/odoo_argentina:/mnt/odoo-argentina
-      - ./addons/odoo_argentina_ee:/mnt/odoo-argentina-ee
-      - ./addons/account_budgeting:/mnt/account-budgeting
-      - ./addons/account_financial_reporting:/mnt/account-financial-reporting
-      - ./addons/account_financial_tools:/mnt/account-financial-tools
-      - ./addons/currency:/mnt/currency
-      - ./addons/adhoc_account_financial_tools:/mnt/adhoc-account-financial-tools
-      - ./addons/adhoc_odoo_argentina:/mnt/adhoc-odoo-argentina
-      - ./addons/adhoc_account_payment:/mnt/adhoc-account-payment
       - ./logs:/var/log/odoo
       - ./entrypoint.sh:/entrypoint.sh
     environment:

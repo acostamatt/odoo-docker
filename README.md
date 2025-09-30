@@ -43,21 +43,21 @@ También es necesario clonar algunos módulos para la correcta configuración de
 ```bash
 mkdir addons && cd addons
 
-git clone https://github.com/SagaTDK/account-budgeting.git -b 18 account_budgeting
-
-git clone https://github.com/OCA/account-financial-reporting.git -b 18.0 account_financial_reporting
-
-git clone https://github.com/OCA/account-financial-tools.git -b 18.0 account_financial_tools
-
 git clone https://github.com/ingadhoc/account-financial-tools.git -b 18.0 adhoc_account_financial_tools
 
 git clone https://github.com/ingadhoc/account-payment.git -b 18.0 adhoc_account_payment
 
 git clone https://github.com/ingadhoc/odoo-argentina.git -b 18.0 adhoc_odoo_argentina
 
-git clone https://github.com/codize-app/odoo-argentina.git -b 18.0 odoo_argentina
+git clone https://github.com/ingadhoc/odoo-argentina-ee.git  -b 18.0 adhoc_odoo_argentina_ea
 
-git clone https://github.com/ingadhoc/odoo-argentina-ee.git  -b 18.0 odoo_argentina_ea
+git clone https://github.com/codize-app/odoo-argentina.git -b 18.0 ca_odoo_argentina
+
+git clone https://github.com/OCA/account-financial-reporting.git -b 18.0 oca_account_financial_reporting
+
+git clone https://github.com/OCA/account-financial-tools.git -b 18.0 oca_account_financial_tools
+
+git clone https://github.com/SagaTDK/account-budgeting.git -b 18 st_account_budgeting
 
 ```
 
