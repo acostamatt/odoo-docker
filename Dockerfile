@@ -21,6 +21,9 @@ RUN apt-get update && apt-get install -y \
     liblcms2-dev \
     libblas-dev \
     liblapack-dev \
+    wkhtmltopdf \
+    xfonts-base \
+    xfonts-75dpi \
     libopenblas-dev \
     postgresql-client \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
