@@ -7,7 +7,7 @@ set -euo pipefail
 : "${USER:=odoo}"
 : "${PASSWORD:=odoo}"
 : OD_CONF="${OD_CONF:-/etc/odoo/odoo.conf}"
-: INIT_MODULES="${INIT_MODULES:-base,web,l10n_ar_afipws,l10n_ar_afipws_fe,web_enterprise}"
+: INIT_MODULES="${INIT_MODULES:-base,web,web_enterprise}"
 # Wait for PostgreSQL to be ready
 until pg_isready -h "$HOST" -U "$USER" -d "$DB" > /dev/null 2>&1; do
   sleep 2
