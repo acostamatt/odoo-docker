@@ -21,12 +21,16 @@ RUN apt-get update && apt-get install -y \
     liblcms2-dev \
     libblas-dev \
     liblapack-dev \
-    wkhtmltopdf \
     xfonts-base \
     xfonts-75dpi \
     libopenblas-dev \
     postgresql-client \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb -O /tmp/wkhtmltopdf.deb \
+    && apt-get install -y /tmp/wkhtmltopdf.deb \
+    && rm /tmp/wkhtmltopdf.deb \
+    && wkhtmltopdf --version
 
 COPY ./community /odoo
 WORKDIR /odoo
